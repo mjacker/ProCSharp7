@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProC7.CH02
+namespace ProC7
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             // Set Conso UI (CUI)
             Console.Title = "MaCroCode";
