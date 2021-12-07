@@ -12,23 +12,73 @@ namespace ProC7
     {
         static int Main(string[] args)
         {
-            Menu m = new Menu("compras");
+        // item declaration area
+            Menu compras = new Menu("compras");
+            compras.Add("harina");
+            compras.Add("leche");
+            compras.Add("azucar");
+            //compras.ShowChoises();
 
-            m.Add("harina");
-            m.Add("leche");
-            m.Add("azucar");
+            Menu autos = new Menu("Autos");
+            autos.Add("Toyota");
+            autos.Add("BMW");
+            autos.Add("Audi");
+            //autos.ShowChoises();
 
-            m.Name = "hola";
+            Menu chapters = new Menu("Chapters");
+            chapters.Add("Chapter one.");
+            chapters.Add("Chapter two.");
+            chapters.Add("Chapter three.");
 
-            m.ShowName();
+            Menu languages = new Menu("Languages");
+            languages.Add("Spanish");
+            languages.Add("English");
+            languages.Add("Chinese");
 
+            chapters.AddSub(languages);
+
+            // menu of menus
+            Menu m = new Menu("Principal");
+            m.AddSub(chapters);
+            m.AddSub(compras);
+            m.AddSub(autos);
+
+        // testing to add value after sync with menu.
+            compras.Add("galleta");
+
+        // printing area:
+
+            //Line("Printing area>");
             m.ShowChoises();
+            m.ShowSubMenu();
 
-            test.Main();
+            // menu conditions test:
+            bool exit = false;
+            while (!exit)
+            {
+                Console.Write("Choose option>> ");
 
-            Console.ReadLine();
+                int r = Convert.ToInt32(Console.ReadLine()); // no manage exceptions yet.
+
+                    
+
+                switch (r)
+                {
+                    case 0:
+                        exit = true;
+                        break;
+                    default:
+                        m.ShowSubMenu(r);
+                        break;
+                }
+            }
 
             return 0;
+        }
+
+        static void Line(string s)
+        {
+            Console.WriteLine("\n-----------------------\n{0}\n-----------------------\n", s);
         }
     }
 }

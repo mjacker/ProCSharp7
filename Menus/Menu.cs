@@ -8,28 +8,24 @@ namespace ProC7.Menus
 {
     public class Menu
     {
-        private string name = "";
+        private string title = "";
         private int id = 0;
-        private List<string> choise = new List<string>();
-        private Menu subMenu = new Menu("vacio - test 001");
+        private List<Tuple<string, bool>> choise = new List<Tuple< string, bool>>();
+        private List<Menu> subMenu = new List<Menu>();
 
         // initializer
-        public Menu(string name)
+        public Menu(string titlename)
         {
-            this.name = name;
+            this.title = titlename;
         }
 
         // properties 
-        public string Name {
-            get { return this.name; }
-            set { name = value; }
+        public string Title { //Forma abreviada get set.
+            get { return this.title; }
+            set { title = value; }
         }
 
-        public int GetId()
-        {
-            return this.id;
-        }
-
+        public int GetId() {return this.id;} // Forma expandida get set.
         public void SetId(int n)
         {
             if (n <= 100)
@@ -44,23 +40,50 @@ namespace ProC7.Menus
 
 
         // methods 
-        public void ShowName()
+        public void Add(String s)
         {
-            Console.WriteLine(this.name);
+            this.choise.Add(new Tuple<string, bool>(s, false));
+        }
+        public void ShowTitle()
+        {
+            Console.WriteLine("\n----------------------------------\nMenu: {0}\n----------------------------------", this.title);
         }
 
         public void ShowChoises()
         {
-            Console.WriteLine("Menu: {0}\n----------------------------------", this.name);
+            ShowTitle();
             for (int i = 0; i < this.choise.Count; i++)
             {
-                Console.WriteLine("\n{0}) {1}", i + 1, this.choise[i]);
+                if (this.choise[i].Item2 == false)
+                    Console.WriteLine("\n{0}) {1}", i + 1, this.choise[i].Item1);
+                else
+                {
+                    Console.WriteLine("\n{0}) {1}\t\t>>", i + 1, this.choise[i].Item1);
+                }
             }
         }
 
-        public void Add(String s)
+
+        // Sub - menu - methods
+        public void AddSub (Menu sm)
         {
-            this.choise.Add(s);
+            this.choise.Add(new Tuple<string, bool>(sm.title, true));
+            this.subMenu.Add(sm);
+            this.id += 1;
+        }
+        public void ShowSubMenu()
+        {
+            for (int i = 0; i < this.subMenu.Count; i++)
+            {
+                //Console.WriteLine("\n{0}) {1}", i + 1, this.subMenu[i]);
+                this.subMenu[i].ShowChoises();
+            }
+        }
+
+        public void ShowSubMenu(int n)
+        {
+                //Console.WriteLine("\n{0}) {1}", i + 1, this.subMenu[i]);
+                this.subMenu[n - 1].ShowChoises();
         }
     }
 }
