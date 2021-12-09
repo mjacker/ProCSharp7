@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using x = ProC7.CH01.Calc;
+
+//Esta inmpelemtada la clase menu, pero no consigo gurdar las referencias con
+// using, para poder guardar las direcciones de los otros metodos que estan en otros name espaces.
+// pongo en pausa este desarrollo hasta tocar mas ejemplos, sobre clases genericas.
 
 namespace ProC7.Menus
 {
@@ -118,6 +123,18 @@ namespace ProC7.Menus
         {
                 //Console.WriteLine("\n{0}) {1}", i + 1, this.subMenu[i]);
                 this.subMenu[n - 1].ShowChoises();
+        }
+
+        public void Call(int i)
+        {
+            // intentando guardar la llamada de un metodo desde otro namesapce
+            // pero no consigo guardar desntro de la clase Menu.
+
+            //var xx = new x();
+            x.CalcMain xx = new x.CalcMain() ;
+            x.CalcMain.Main();
+            xx.ToString();
+            
         }
     }
 }

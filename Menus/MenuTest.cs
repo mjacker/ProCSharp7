@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using ProC7.Menus;
 using test = ProC7.MJTest.MJlist;
 
-namespace ProC7
+namespace ProC7.Menus
 {
-    class Exe
+    class MenuTest
     {
         static int Main(string[] args)
         {
@@ -38,6 +38,10 @@ namespace ProC7
                 languages.Add("Chinese");
 
                 chapters.AddSub(languages);
+
+                Menu ProC7CH = new Menu("Book ProC#7");
+                ProC7CH.Add("Calc.exe");
+                ProC7CH.Call(1);
 
                 // menu of menus
                 Menu m = new Menu("Principal");

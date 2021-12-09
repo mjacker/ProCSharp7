@@ -66,7 +66,7 @@
     <Compile Include="CH01\Hello\Class1.cs" />
     <Compile Include="CH02\Program.cs" />
     <Compile Include="CH03\ErrorCode.cs" />
-    <Compile Include="Exe.cs" />
+    <Compile Include="Menus\MenuTest.cs" />
     <Compile Include="CH03\Class1.cs" />
     <Compile Include="Menus\Menu.cs" />
     <Compile Include="MJTest\MJList.cs" />
