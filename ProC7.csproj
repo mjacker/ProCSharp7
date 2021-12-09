@@ -69,6 +69,7 @@
     <Compile Include="Exe.cs" />
     <Compile Include="CH03\Class1.cs" />
     <Compile Include="Menus\Menu.cs" />
+    <Compile Include="MJTest\MJEnum.cs" />
     <Compile Include="MJTest\MJList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
