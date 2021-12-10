@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProC7.CH01.Hello
+namespace CH01
 {
-    class HelloWorld
+    public class Hello
     {
         public static void Main()
         {

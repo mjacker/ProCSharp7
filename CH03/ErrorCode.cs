@@ -10,7 +10,7 @@ namespace ProC7.CH03
     {
         // ### Note we are now returnig an int, rether than void ###
         // -------------------------------------------------------//
-        static int Main(string[] args)
+        public static int Main()
         {
             // Display a message and wait for Enter key to be pressed.
             Console.WriteLine("Wainting you press Enter key...");

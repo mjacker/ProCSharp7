@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProC7.CH01.Calc
+namespace CH01
 {
     class CalcMain
     {
-        static void Main()
+        public void Main()
         {
             Calc c = new Calc();
             int ans = c.Add(10, 84);
