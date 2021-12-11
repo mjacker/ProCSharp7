@@ -7,16 +7,16 @@ using System.Windows.Forms;
 
 namespace ProC7.CH02
 {
-    class Program
+    class Welcome
     {
-        static void Main()
+        public static void Main()
         {
             // Set Conso UI (CUI)
-            Console.Title = "MaCroCode";
+            Console.Title = "This is a title: Welcome";
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("*************************************");
-            Console.WriteLine("*****   Welcome to MaCroCode    *****");
+            Console.WriteLine("*****   Welcome to MJProC#7    *****");
             Console.WriteLine("*************************************");
             Console.BackgroundColor = ConsoleColor.Black;
 

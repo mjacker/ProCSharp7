@@ -3,121 +3,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CH1_CalcMain = CH01.CalcMain;
+using CH1_Hello = CH01.Hello;
+using CH2_Welcome = ProC7.CH02.Welcome;
 
 namespace ProC7.Menus
 {
-    public class Menu
+    class Menu
     {
-        private string title = "";
-        private int id = 0;
-        private List<Tuple<string, bool>> choise = new List<Tuple< string, bool>>();
-        private List<Menu> subMenu = new List<Menu>();
-
-        // initializer
-        public Menu(string titlename)
+        // Local variables
+        private readonly string menu = "" +
+            "\n1) Chapter 1: Example Calc.cs" +
+            "\n2) Chapter 1: Hello World." +
+            "\n3) Chapter 2: Welcome Message." +
+            "\n4) Chapter 3: Can nor run directly, need to change in ProC7 properties." +
+            "\n0) Exit.>> ";
+        private int op;
+        public void Run()
         {
-            this.title = titlename;
-        }
-
-        // properties 
-        public string Title { //Forma abreviada get set.
-            get { return this.title; }
-            set { title = value; }
-        }
-
-        public int GetId() {return this.id;} // Forma expandida get set.
-        public void SetId(int n)
-        {
-            if (n <= 100)
+            bool exit = false;
+            while (!exit)
             {
-                this.id = n;
-            }
-            else
-            {
-                Console.WriteLine("Only available 100 records.");
-            }
-        }
-
-        public Menu GetSubMenu(int n) 
-        { // falta validar datos // error, el menu se carga en la primera posicion.
-            return this.subMenu[n - 1];
-        }
-   
-        public string GetChoiseName(int n)
-        {
-            if (choise.Count > 0 && n <= this.choise.Count)
-            {
-                return this.choise[n - 1].Item1;
-            }
-            else
-            {
-                return "(void)";
-            }
-        }
-        public bool GetChoiseBool(int n)
-        {
-            if (choise.Count > 0 && n <= choise.Count && n != 0)
-            {
-                return this.choise[n - 1].Item2;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public int GetChoiseCount()
-        {
-            return this.choise.Count;
-        }
-
-
-        // methods 
-        public void Add(String s)
-        {
-            this.choise.Add(new Tuple<string, bool>(s, false));
-            this.subMenu.Add(null);
-        }
-        public void ShowTitle()
-        {
-            Console.WriteLine("\n----------------------------------\nMenu: {0}\n----------------------------------", this.title);
-        }
-
-        public void ShowChoises()
-        {
-            ShowTitle();
-            for (int i = 0; i < this.choise.Count; i++)
-            {
-                if (this.choise[i].Item2 == false)
-                    Console.WriteLine("\n{0}) {1}", i + 1, this.choise[i].Item1);
-                else
+                try
                 {
-                    Console.WriteLine("\n{0}) {1}\t\t>>", i + 1, this.choise[i].Item1);
+                    this.PrintMenu();
+                    op = Convert.ToInt32(Console.ReadLine());
+                    switch (op)
+                    {
+                        case 0:
+                            exit = true;
+                            break;
+
+                        case 1:
+                            CH1_CalcMain.Main();
+                            break;
+                        case 2:
+                            CH1_Hello.Main();
+                            break;
+                        case 3:
+                            CH2_Welcome.Main();
+                            break;
+                    }
+                    if (op != 0)
+                    {
+                        Console.WriteLine("\n-----------------------------------------------\nProgram ended. Press enter to continue...");
+                        Console.ReadLine();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Warning: {0}", ex.Message);
                 }
             }
-            Console.WriteLine("\n0) Exit.");
-        }
 
-
-        // Sub - menu - methods
-        public void AddSub (Menu sm)
-        {
-            this.choise.Add(new Tuple<string, bool>(sm.title, true));
-            this.subMenu.Add(sm);
-            this.id += 1;
         }
-        public void ShowSubMenu()
+        public void PrintMenu()
         {
-            for (int i = 0; i < this.subMenu.Count; i++)
-            {
-                //Console.WriteLine("\n{0}) {1}", i + 1, this.subMenu[i]);
-                this.subMenu[i].ShowChoises();
-            }
-        }
-
-        public void ShowSubMenu(int n)
-        {
-                //Console.WriteLine("\n{0}) {1}", i + 1, this.subMenu[i]);
-                this.subMenu[n - 1].ShowChoises();
+            Console.Write(this.menu);
         }
     }
 }

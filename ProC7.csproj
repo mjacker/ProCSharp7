@@ -64,11 +64,13 @@
   <ItemGroup>
     <Compile Include="CH01\CalcMain.cs" />
     <Compile Include="CH01\Hello.cs" />
-    <Compile Include="CH02\Program.cs" />
+    <Compile Include="CH02\Welcome.cs" />
     <Compile Include="CH03\ErrorCode.cs" />
     <Compile Include="Exe.cs" />
     <Compile Include="CH03\LineArguments.cs" />
+    <Compile Include="Explorer\Discord\phreakphreak\Program.cs" />
     <Compile Include="Menus\Menu.cs" />
+    <Compile Include="Menus\NodeMenu.cs" />
     <Compile Include="MJTest\MJEnum.cs" />
     <Compile Include="MJTest\MJList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
