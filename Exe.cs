@@ -15,6 +15,9 @@ namespace ProC7
         {
             Menu m = new Menu();
             m.Run();
+
+            Menu explorer = new Menu();
+            explorer.Run();
  
             return 0;
         }

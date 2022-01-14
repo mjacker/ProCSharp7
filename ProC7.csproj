@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ProC7.Exe</StartupObject>
+    <StartupObject>ProC7.MJTest.ListToFiles</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -68,11 +68,13 @@
     <Compile Include="CH03\ErrorCode.cs" />
     <Compile Include="Exe.cs" />
     <Compile Include="CH03\LineArguments.cs" />
+    <Compile Include="Explorer\Discord\AngelTron\Diagonal.cs" />
     <Compile Include="Explorer\Discord\phreakphreak\Program.cs" />
     <Compile Include="Menus\Menu.cs" />
     <Compile Include="Menus\NodeMenu.cs" />
-    <Compile Include="MJTest\MJEnum.cs" />
-    <Compile Include="MJTest\MJList.cs" />
+    <Compile Include="MJDef\ListToFiles.cs" />
+    <Compile Include="MJDef\MJEnum.cs" />
+    <Compile Include="MJDef\MJList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
