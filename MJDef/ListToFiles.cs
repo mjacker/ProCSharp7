@@ -148,7 +148,7 @@ namespace ProC7.MJTest
             public override string ToString()
             {
                 string message = "" +
-                    "\nStudent: " + surname + "," + name + 
+                    "\nStudent: " + surname + ", " + name + 
                     "\nNote: " + note;
                 return message;
             }
